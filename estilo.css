@@ -40,6 +40,9 @@
 
     background-color: #F3F3F3;
 }
+.chat li:last-child{
+    margin-bottom: 80px;
+}
 li{
     height: auto;
     margin-bottom: 4px;
