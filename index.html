@@ -14,21 +14,11 @@
             <ion-icon class="menuButton" name="people"></ion-icon>
         </nav>
         <main class="chat">
-           <ul class="messages">
-            <li class="status">
-                <p><time>(09:21:45)</time><strong>João</strong> entra na sala...</p>
-            </li>
-            <li class="normal"> 
-                <p><time>(09:22:28)</time><strong>João</strong> para <strong>Todos:</strong> Bom dia</p>
-            </li>
-            <li class="private">
-                <p><time>(09:22:48)</time><strong>João</strong> reservadamente para <strong>Maria:</strong> Oi gatinha quer tc?</p>
-            </li>
-           </ul> 
+           <ul class="messages"></ul> 
         </main>
         <footer class="bottomBar">
             <textarea class="text" placeholder="Escreva aqui..."></textarea>
-            <ion-icon class="sendMessage" name="paper-plane-outline"></ion-icon>
+            <ion-icon onclick="send()" class="sendMessage" name="paper-plane-outline"></ion-icon>
         </footer>
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

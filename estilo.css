@@ -33,7 +33,7 @@
     font-size: 42px;
 }
 .chat{
-    height: 507px;
+    height: auto;
     margin: 80px 0px;
     
     padding-top: 26px;
@@ -54,6 +54,8 @@ li{
 
     display: flex;
     align-items: center;
+    
+    word-break: break-word;
 }
 time{
     margin-right: 5px;

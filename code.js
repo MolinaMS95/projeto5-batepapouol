@@ -57,9 +57,25 @@ function loadingError(){
     alert('Erro ao carregar as mensagens!');
 }
 
-/*function keepConnection(){
-    const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
-    promise.then(loadMessages);
-    promise.catch()
+function keepConnection(){
+    axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
 }
-setInterval(keepConnection, 5000);*/
+setInterval(keepConnection, 5000);
+
+function send(){
+    let textInput = document.querySelector('.text');
+    let writing = textInput.value;
+    let textObject = {from: user.name, to: "Todos", text: writing, type: "message"};
+    let promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', textObject);
+    promise.then(succesfulSending);
+    promise.catch(failedSending);
+    textInput.value="";
+}
+
+function succesfulSending(){
+    loadMessages();
+}
+
+function failedSending(){
+    window.location.reload();
+}
