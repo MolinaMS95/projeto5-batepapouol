@@ -32,20 +32,20 @@ function renderizeMessages(response){
             case 'status':
                 chat.innerHTML += 
                     `<li class="status">
-                        <p><time>${hour}</time><strong>${sender}</strong> ${message}</p>
+                        <p><time>(${hour})</time><strong>${sender}</strong> ${message}</p>
                     </li>`
                 break;
             case 'message':
                 chat.innerHTML += 
                     `<li class="normal"> 
-                        <p><time>${hour}</time><strong>${sender}</strong> para <strong>${recipient}:</strong> ${message}</p>
+                        <p><time>(${hour})</time><strong>${sender}</strong> para <strong>${recipient}:</strong> ${message}</p>
                     </li>`
                 break;
             case 'private_message':
-                if(recipient===user || recipient==='Todos'){
+                if(recipient===user.name || recipient==='Todos'){
                     chat.innerHTML += 
                     `<li class="private">
-                        <p><time>${hour}</time><strong>${sender}</strong> reservadamente para <strong>${recipient}:</strong> ${message}</p>
+                        <p><time>(${hour})</time><strong>${sender}</strong> reservadamente para <strong>${recipient}:</strong> ${message}</p>
                     </li>`
                 }
         }
@@ -79,3 +79,11 @@ function succesfulSending(){
 function failedSending(){
     window.location.reload();
 }
+
+let input = document.querySelector('.text');
+input.addEventListener("keypress", event => {
+    if(event.key === "Enter"){
+        event.preventDefault();
+        document.querySelector('.sendMessage').click();
+    }
+});
