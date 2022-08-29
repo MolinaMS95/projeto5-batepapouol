@@ -1,23 +1,34 @@
-let user = {name: prompt('Qual o seu nome?')};
+let user = {name: ""};
 
 function registerUser(){
+    const id = document.querySelector('.name').value;
+    user.name = id;
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', user);
     promise.then(loadMessages);
     promise.catch(invalidUser);
 }
-registerUser();
 
 function invalidUser(){
-    user = {name: prompt('Nome inválido, escolha outro:')};
-    registerUser();
+    const input = document.querySelector('.name');
+    input.value = "";
+    user = {name: ""};
+    alert('Nome inválido, escolha outro:');
 }
 
 function loadMessages(){
-    const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
-    promise.then(renderizeMessages);
-    promise.catch(loadingError);
+    if(user.name !== ""){
+        const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
+        promise.then(renderizeMessages);
+        promise.catch(loadingError);
+        const loginScreen = document.querySelector('.loginScreen');
+        if(loginScreen.classList.contains('loginScreen')){
+            loginScreen.classList.remove('loginScreen')
+            loginScreen.classList.add('hidden');
+            const chat = document.querySelector('.mainContent');
+            chat.classList.remove('hidden');
+        }
+    }
 }
-setInterval(loadMessages, 3000);
 
 function renderizeMessages(response){
     const arrayMessages = response.data;
@@ -58,7 +69,9 @@ function loadingError(){
 }
 
 function keepConnection(){
-    axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
+    if(user.name !== ""){
+        axios.post('https://mock-api.driven.com.br/api/v6/uol/status', user);
+    }
 }
 setInterval(keepConnection, 5000);
 

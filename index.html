@@ -9,17 +9,24 @@
         <link rel="stylesheet" href="estilo.css">
     </head>
     <body>
-        <nav class="topBar">
-            <img class="logoNav" src="./images/logo.png" alt="logo do bate papo uol"/>
-            <ion-icon class="menuButton" name="people"></ion-icon>
-        </nav>
-        <main class="chat">
-           <ul class="messages"></ul> 
-        </main>
-        <footer class="bottomBar">
-            <textarea class="text" placeholder="Escreva aqui..."></textarea>
-            <ion-icon onclick="send()" class="sendMessage" name="paper-plane-outline"></ion-icon>
-        </footer>
+        <div class="loginScreen">
+            <img class="logo" src="./images/logo.png" alt="logo do bate papo uol"/>
+            <input class="name" type="text" placeholder="Digite seu nome"/>
+            <button onclick="registerUser()">Entrar</button>
+        </div>
+        <div class="mainContent hidden">
+            <nav class="topBar">
+                <img class="logoNav" src="./images/logo.png" alt="logo do bate papo uol"/>
+                <ion-icon class="menuButton" name="people"></ion-icon>
+            </nav>
+            <main class="chat">
+            <ul class="messages"></ul> 
+            </main>
+            <footer class="bottomBar">
+                <textarea class="text" placeholder="Escreva aqui..."></textarea>
+                <ion-icon onclick="send()" class="sendMessage" name="paper-plane-outline"></ion-icon>
+            </footer>
+        </div>
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="code.js"></script>
