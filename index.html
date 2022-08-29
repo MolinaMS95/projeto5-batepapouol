@@ -11,21 +11,54 @@
     <body>
         <div class="loginScreen">
             <img class="logo" src="./images/logo.png" alt="logo do bate papo uol"/>
-            <input class="name" type="text" placeholder="Digite seu nome"/>
-            <button onclick="registerUser()">Entrar</button>
+            <div class="login">
+                <input class="name" type="text" placeholder="Digite seu nome"/>
+                <button onclick="registerUser()">Entrar</button>
+            </div> 
+            <div class="loading hidden">
+                <img src="./images/loading.gif" alt="gif carregando"/>
+                <p>Entrando...</p>
+            </div>
         </div>
         <div class="mainContent hidden">
             <nav class="topBar">
                 <img class="logoNav" src="./images/logo.png" alt="logo do bate papo uol"/>
-                <ion-icon class="menuButton" name="people"></ion-icon>
+                <ion-icon onclick="openMenu()" class="menuButton" name="people"></ion-icon>
             </nav>
             <main class="chat">
             <ul class="messages"></ul> 
             </main>
             <footer class="bottomBar">
-                <textarea class="text" placeholder="Escreva aqui..."></textarea>
+                <div class="textArea">
+                    <textarea class="text" placeholder="Escreva aqui..."></textarea>
+                    <p class="target">Enviando para Todos</p>
+                </div>
                 <ion-icon onclick="send()" class="sendMessage" name="paper-plane-outline"></ion-icon>
             </footer>
+        </div>
+        <div class="menu hidden">
+            <div onclick="closeMenu()" class="darkBackground"></div>
+            <div class="sideMenu">
+                <div class="title">
+                    <p><strong>Escolha um contato<br>para enviar mensagem:</strong></p>
+                </div>
+                <ul class="participants"></ul>
+                <div class="title">
+                    <p><strong>Escolha a visibilidade:</strong></p>
+                </div>
+                <ul class="visibility">
+                    <li onclick="select(this)" data-identifier="visibility">
+                        <ion-icon name="lock-open"></ion-icon>
+                        <p>Público</p>
+                        <ion-icon class="check hidden" name="checkmark-sharp"></ion-icon>
+                    </li>
+                    <li onclick="select(this)" data-identifier="visibility">
+                        <ion-icon name="lock-closed"></ion-icon>
+                        <p>Reservadamente</p>
+                        <ion-icon class="check hidden" name="checkmark-sharp"></ion-icon>
+                    </li>
+                </ul>
+            </div>
         </div>
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

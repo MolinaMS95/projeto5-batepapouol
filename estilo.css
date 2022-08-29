@@ -3,24 +3,32 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
-.hidden{
+body .hidden{
     display: none;
+}
+.login, .loginScreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .loginScreen{
     width: 100%;
     height: 100%;
 
     background-color: #FFFFFF;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 .logo{
     width: 130px;
     height: 92px;
     margin-top: 72px;
     margin-bottom: 94px;
+}
+.loading p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-align: center;
+
+    margin-top: 10px;
 }
 input, input::placeholder{
     font-size: 18px;
@@ -46,6 +54,7 @@ button{
     border: none;
     border-radius: 9px;
 
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: #696969;
 }
@@ -94,7 +103,7 @@ li{
     margin-bottom: 4px;
     border-radius: 2px;
     padding: 12px 9px;
-
+    
     font-size: 14px;
     line-height: 20px;
 
@@ -126,9 +135,6 @@ time{
 }
 .text{
     font-size: 18px;
-
-    padding-top: 21px;
-
     border: none;
 }
 .text::placeholder{
@@ -138,4 +144,58 @@ time{
 }
 .sendMessage{
     font-size: 26px;
+}
+.menu{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+}
+.darkBackground{
+    width: 31%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.sideMenu{
+    width: 69%;
+    height: 100%;
+
+    background-color: #FFFFFF;
+}
+.title{
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+.sideMenu p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+.sideMenu ion-icon{
+    font-size: 23px;
+    margin-right: 5px;
+}
+.participants{
+    height: 400px;
+    overflow-y: auto;
+}
+.sideMenu li{
+    margin-bottom: -10px;
+}
+.check{
+    font-size: 9px;
+    color: #28BB25;
+
+    margin-left: 50px;
+}
+.textArea p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #505050;
 }
